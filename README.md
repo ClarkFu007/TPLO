@@ -32,83 +32,50 @@ The default is `llm_weights`.
 - 'llama3_instruct_8B': 'Undi95/Meta-Llama-3-8B-Instruct-hf',
 - 'Mistral-7B-Instruct-v0.3': 'mistralai/Mistral-7B-Instruct-v0.3'
 
-### Script example of pruning via vanilla wanda
+-
+
+**Script example of pruning via vanilla wanda and C4**
 ```
 python3 main.py \
 --cuda_id 0 \
 --model Undi95/Meta-Llama-3-8B-Instruct-hf \
 --calibration_datasets c4 \
+--input_format concat \
+--nsamples 128 --seqlen 2048 \
+--padding_side left \
 --prune_method wanda \
 --sparsity_ratio 0.5 \
 --sparsity_type unstructured
+```
 
+**Script example of pruning via vanilla wanda and enriched truthfulQA**
+```
+python3 main.py \
+--cuda_id 0 \
+--model Undi95/Meta-Llama-3-8B-Instruct-hf \
+--calibration_datasets enriched_truth_qa \
+--input_format concat \
+--nsamples 128 --seqlen 2048 \
+--padding_side left \
+--prune_method wanda \
+--sparsity_ratio 0.5 \
+--sparsity_type unstructured
+```
+
+**Script example of pruning via wanda option 1 and C4**
 python3 main.py \
 --cuda_id 0 \
 --model Undi95/Meta-Llama-3-8B-Instruct-hf \
 --calibration_datasets c4 \
+--input_format concat \
+--nsamples 128 --seqlen 2048 \
+--padding_side left \
 --prune_method wanda_option1 \
 --sparsity_ratio 0.5 \
 --sparsity_type unstructured \
 --skip_dense_eval
 
-python3 main.py \
---cuda_id 0 \
---model Undi95/Meta-Llama-3-8B-Instruct-hf \
---calibration_datasets truth_qa \
---prune_method wanda \
---sparsity_ratio 0.5 \
---sparsity_type unstructured
-
-
-# Truth_is_Universal
-python3 main.py \
---cuda_id 3 \
---model Undi95/Meta-Llama-3-8B-Instruct-hf \
---calibration_datasets truth_is_universal \
---input_format concat \
---nsamples 128 --seqlen 2048 \
---padding_side left \
---prune_method wanda --sparsity_ratio 0.5 \
---sparsity_type unstructured \
---skip_dense_eval 
-
-# Enriched TruthfulQA
-python3 main.py \
---cuda_id 3 \
---model Undi95/Meta-Llama-3-8B-Instruct-hf \
---calibration_datasets enriched_truth_qa \
---input_format concat \
---nsamples 128 --seqlen 2048 \
---padding_side left \
---prune_method wanda --sparsity_ratio 0.5 \
---sparsity_type unstructured \
---skip_dense_eval
-
-python3 main.py \
---cuda_id 3 \
---model Undi95/Meta-Llama-3-8B-Instruct-hf \
---calibration_datasets enriched_truth_qa \
---input_format concat \
---nsamples 128 --seqlen 2048 \
---padding_side left \
---prune_method wanda_option1 --sparsity_ratio 0.5 \
---sparsity_type unstructured \
---skip_dense_eval
-
-# GSM8K: ICL = 5, random CoT
-python3 main.py \
---cuda_id 3 \
---model Undi95/Meta-Llama-3-8B-Instruct-hf \
---calibration_datasets gsm8k \
---input_format concat \
---nsamples 128 --seqlen 2048 \
---padding_side left \
---shot few --num_incontext 5 \
---prune_method wanda --sparsity_ratio 0.5 \
---sparsity_type unstructured
-```
-
-### Script example of pruning via OWL-wanda
+**Script example of pruning via OWL and C4**
 ```
 python3 main.py \
 --cuda_id 0 \
@@ -120,19 +87,24 @@ python3 main.py \
 --Lamda 0.08 \
 --Hyper_m 5 \
 --skip_dense_eval
+```
 
+**Script example of pruning via OWL option2 and C4**
+```
 python3 main.py \
 --cuda_id 0 \
 --model Undi95/Meta-Llama-3-8B-Instruct-hf \
---calibration_datasets c4 enriched_truth_qa \
+--calibration_datasets c4 \
 --prune_method owl_option2 \
 --sparsity_ratio 0.5 \
 --sparsity_type unstructured \
 --Lamda 0.08 \
 --Hyper_m 5 \
 --skip_dense_eval
+```
 
-# Enriched TruthfulQA
+**Script example of pruning via OWL option2 and C4, enriched TruthfulQA**
+```
 python3 main.py \
 --cuda_id 0 \
 --model Undi95/Meta-Llama-3-8B-Instruct-hf \
@@ -146,24 +118,6 @@ python3 main.py \
 --Lamda 0.08 \
 --Hyper_m 5 \
 --skip_dense_eval
-
-meta-llama/Llama-2-13b-chat-hf
-mistralai/Mistral-7B-Instruct-v0.3
-Undi95/Meta-Llama-3-8B-Instruct-hf
-python3 main.py \
---cuda_id 0 \
---model mistralai/Mistral-7B-Instruct-v0.3 \
---calibration_datasets c4 enriched_truth_qa \
---input_format concat \
---nsamples 128 --seqlen 2048 \
---padding_side left \
---prune_method owl_option2 \
---sparsity_ratio 0.5 \
---sparsity_type unstructured \
---Lamda 0.08 \
---Hyper_m 5 \
---skip_dense_eval
-
 ```
 
 
