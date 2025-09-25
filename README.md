@@ -16,7 +16,7 @@ pip install -r requirements.txt
 
 📦 **Quickstart**
 
-We provide a quick overview of the arguments:  
+**We provide a quick overview of the arguments:**
 - `--model`: The identifier for the LLaMA model on the Hugging Face model hub.
 - `--cache_dir`: Directory for loading or storing LLM weights. 
 The default is `llm_weights`.
