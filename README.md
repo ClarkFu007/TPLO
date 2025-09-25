@@ -1,6 +1,6 @@
 # Pruning Weights but Not Truth: Safeguarding Truthfulness While Pruning LLMs (2025-EMNLP-Findings-Poster)
 
-## Step 1: Truthful Pruning, OWL Pruning, and Wanda Pruning
+## 🚀 Step 1: Truthful Pruning, OWL Pruning, and Wanda Pruning
 
 **Installation** 
 
@@ -185,7 +185,7 @@ pip install -e transformers-4.51.3
 ```
 
 
-##  Citation
+## 📚 Citation
 
 If you want to use our code, please cite as
 ```bibtex
