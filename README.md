@@ -195,3 +195,7 @@ If you want to use our code, please cite as
   journal={arXiv preprint arXiv:2509.00096},
   year={2025}
 }
+```
+
+## 🙏 acknowledgement
+Our codes are built upon https://github.com/luuyin/OWL and https://github.com/sciai-lab/Truth_is_Universal.
