@@ -20,12 +20,11 @@ We provide a quick overview of the arguments:
 - `--model`: The identifier for the LLaMA model on the Hugging Face model hub.
 - `--cache_dir`: Directory for loading or storing LLM weights. 
 The default is `llm_weights`.
-- `--prune_method`: Pruning methods,namely [`wanda_owl`,`wanda_owl_structure`,
-`sparsegpt_owl`,`magnitude`, `wanda`, `sparsegpt`].
+- `--prune_method`: Pruning methods,namely [`wanda`,`wanda_option1`, `owl`,`owl_option2`].
 - `--sparsity_ratio`: Denotes the percentage of weights to be pruned.
 - `--save`: Specifies the directory where the result will be stored.
-- `--Hyper_m`: Denotes the hyperparameter of `M`.
-- `--Lamda`:  Denotes the hyperparameter of `Lamda`.
+- `--Hyper_m`: Denotes the hyperparameter of `M` for OWL pruning.
+- `--Lamda`:  Denotes the hyperparameter of `Lamda` for OWL pruning.
 
 ---
 'llama2_chat_7B': 'meta-llama/Llama-2-7b-chat-hf',
