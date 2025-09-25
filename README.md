@@ -26,7 +26,6 @@ The default is `llm_weights`.
 - `--Hyper_m`: Denotes the hyperparameter of `M` for OWL pruning.
 - `--Lamda`:  Denotes the hyperparameter of `Lamda` for OWL pruning.
 
----
 **Models**
 - 'llama2_chat_7B': 'meta-llama/Llama-2-7b-chat-hf',
 - 'llama2_chat_13B': 'meta-llama/Llama-2-13b-chat-hf',
