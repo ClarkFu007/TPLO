@@ -35,15 +35,9 @@ pip install -e transformers-4.51.3
 ##  Citation
 
 If you want to use our code, please cite as
-
 @article{fu2025pruning,
-  
   title={Pruning Weights but Not Truth: Safeguarding Truthfulness While Pruning LLMs},
-  
   author={Fu, Yao and Li, Runchao and Long, Xianxuan and Yu, Haotian and Han, Xiaotian and Yin, Yu and Li, Pan},
-  
   journal={arXiv preprint arXiv:2509.00096},
-  
   year={2025}
-  
 }
