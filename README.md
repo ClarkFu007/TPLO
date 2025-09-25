@@ -27,10 +27,12 @@ The default is `llm_weights`.
 - `--Lamda`:  Denotes the hyperparameter of `Lamda` for OWL pruning.
 
 ---
-'llama2_chat_7B': 'meta-llama/Llama-2-7b-chat-hf',
-'llama2_chat_13B': 'meta-llama/Llama-2-13b-chat-hf',
-'llama3_instruct_8B': 'Undi95/Meta-Llama-3-8B-Instruct-hf',
-'Mistral-7B-Instruct-v0.3': 'mistralai/Mistral-7B-Instruct-v0.3'
+**Models**
+- 'llama2_chat_7B': 'meta-llama/Llama-2-7b-chat-hf',
+- 'llama2_chat_13B': 'meta-llama/Llama-2-13b-chat-hf',
+- 'llama3_instruct_8B': 'Undi95/Meta-Llama-3-8B-Instruct-hf',
+- 'Mistral-7B-Instruct-v0.3': 'mistralai/Mistral-7B-Instruct-v0.3'
+
 ### Script example of pruning via vanilla wanda
 ```
 python3 main.py \
