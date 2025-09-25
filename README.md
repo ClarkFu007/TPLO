@@ -197,5 +197,5 @@ If you want to use our code, please cite as
 }
 ```
 
-## 🙏 acknowledgement
+## 🙏 Acknowledgement
 Our codes are built upon [OWL](https://github.com/luuyin/OWL) and [Truth_is_Universal](https://github.com/sciai-lab/Truth_is_Universal).
