@@ -2,7 +2,7 @@
 
 ## 🚀 Step 1: Truthful Pruning, OWL Pruning, and Wanda Pruning
 
-**Installation** 
+📦 **Installation** 
 
 ```bash
 cd TruthfulPruning
@@ -14,7 +14,7 @@ conda activate truthful_pruning
 pip install -r requirements.txt
 ```
 
-**Quickstart**
+📦 **Quickstart**
 
 We provide a quick overview of the arguments:  
 - `--model`: The identifier for the LLaMA model on the Hugging Face model hub.
@@ -124,7 +124,7 @@ python3 main.py \
 
 ## 🚀 Step 2: Lie Detection
 
-**Installation** 
+📦 **Installation** 
 
 ```bash
 cd Truth_is_Universal
@@ -136,18 +136,18 @@ conda activate truth_is_universal
 pip install -r requirements.txt
 ```
 
-**Quickstart**
+📦 **Quickstart**
 
-Generate the intermediate activations:
+**Generate the intermediate activations:**
 ```bash
 python3 generate_acts.py
 ```
-Generate the Figure 1 (Separation between true and false statements across layers):
+**Generate the Figure 1 (Separation between true and false statements across layers):**
 ```bash
 python3 truth_directions_main.py
 python3 truth_directions_main_comparison.py
 ```
-Do the lie detection:
+**Do the lie detection:**
 ```bash
 python3 lie_detection_main.py
 ```  
