@@ -32,7 +32,7 @@ The default is `llm_weights`.
 - 'llama3_instruct_8B': 'Undi95/Meta-Llama-3-8B-Instruct-hf',
 - 'Mistral-7B-Instruct-v0.3': 'mistralai/Mistral-7B-Instruct-v0.3'
 
--
+---
 
 **Script example of pruning via vanilla wanda and C4**
 ```
@@ -63,6 +63,7 @@ python3 main.py \
 ```
 
 **Script example of pruning via wanda option 1 and C4**
+```
 python3 main.py \
 --cuda_id 0 \
 --model Undi95/Meta-Llama-3-8B-Instruct-hf \
@@ -74,6 +75,7 @@ python3 main.py \
 --sparsity_ratio 0.5 \
 --sparsity_type unstructured \
 --skip_dense_eval
+```
 
 **Script example of pruning via OWL and C4**
 ```
