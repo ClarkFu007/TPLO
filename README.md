@@ -122,25 +122,35 @@ python3 main.py \
 --skip_dense_eval
 ```
 
+## 🚀 Step 2: Lie Detection
 
-
-
-**Truthfulness on Imitative Falsehoods**
+**Installation** 
 
 ```bash
-cd truthqa_evaluate
+cd Truth_is_Universal
 
-conda create -n truthqa_eval python=3.9
+conda create --name truth_is_universal python=3.11
 
-conda activate truthqa_eval
+conda activate truth_is_universal
 
 pip install -r requirements.txt
-
-pip install -e transformers-4.47.1 (For AWQ)
-
-pip install -e transformers-4.51.3
 ```
 
+**Quickstart**
+
+Generate the intermediate activations:
+```bash
+python3 generate_acts.py
+```
+Generate the Figure 1 (Separation between true and false statements across layers):
+```bash
+python3 truth_directions_main.py
+python3 truth_directions_main_comparison.py
+```
+Do the lie detection:
+```bash
+python3 lie_detection_main.py
+```  
 
 ## 📚 Citation
 
