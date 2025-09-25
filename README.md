@@ -14,6 +14,160 @@ conda activate truthful_pruning
 pip install -r requirements.txt
 ```
 
+## Usage
+--- 
+We provide a quick overview of the arguments:  
+- `--model`: The identifier for the LLaMA model on the Hugging Face model hub.
+- `--cache_dir`: Directory for loading or storing LLM weights. 
+The default is `llm_weights`.
+- `--prune_method`: Pruning methods,namely [`wanda_owl`,`wanda_owl_structure`,
+`sparsegpt_owl`,`magnitude`, `wanda`, `sparsegpt`].
+- `--sparsity_ratio`: Denotes the percentage of weights to be pruned.
+- `--save`: Specifies the directory where the result will be stored.
+- `--Hyper_m`: Denotes the hyperparameter of `M`.
+- `--Lamda`:  Denotes the hyperparameter of `Lamda`.
+
+---
+'llama2_chat_7B': 'meta-llama/Llama-2-7b-chat-hf',
+'llama2_chat_13B': 'meta-llama/Llama-2-13b-chat-hf',
+'llama3_instruct_8B': 'Undi95/Meta-Llama-3-8B-Instruct-hf',
+'Mistral-7B-Instruct-v0.3': 'mistralai/Mistral-7B-Instruct-v0.3'
+### Script example of pruning via vanilla wanda
+```
+python3 main.py \
+--cuda_id 0 \
+--model Undi95/Meta-Llama-3-8B-Instruct-hf \
+--calibration_datasets c4 \
+--prune_method wanda \
+--sparsity_ratio 0.5 \
+--sparsity_type unstructured
+
+python3 main.py \
+--cuda_id 0 \
+--model Undi95/Meta-Llama-3-8B-Instruct-hf \
+--calibration_datasets c4 \
+--prune_method wanda_option1 \
+--sparsity_ratio 0.5 \
+--sparsity_type unstructured \
+--skip_dense_eval
+
+python3 main.py \
+--cuda_id 0 \
+--model Undi95/Meta-Llama-3-8B-Instruct-hf \
+--calibration_datasets truth_qa \
+--prune_method wanda \
+--sparsity_ratio 0.5 \
+--sparsity_type unstructured
+
+
+# Truth_is_Universal
+python3 main.py \
+--cuda_id 3 \
+--model Undi95/Meta-Llama-3-8B-Instruct-hf \
+--calibration_datasets truth_is_universal \
+--input_format concat \
+--nsamples 128 --seqlen 2048 \
+--padding_side left \
+--prune_method wanda --sparsity_ratio 0.5 \
+--sparsity_type unstructured \
+--skip_dense_eval 
+
+# Enriched TruthfulQA
+python3 main.py \
+--cuda_id 3 \
+--model Undi95/Meta-Llama-3-8B-Instruct-hf \
+--calibration_datasets enriched_truth_qa \
+--input_format concat \
+--nsamples 128 --seqlen 2048 \
+--padding_side left \
+--prune_method wanda --sparsity_ratio 0.5 \
+--sparsity_type unstructured \
+--skip_dense_eval
+
+python3 main.py \
+--cuda_id 3 \
+--model Undi95/Meta-Llama-3-8B-Instruct-hf \
+--calibration_datasets enriched_truth_qa \
+--input_format concat \
+--nsamples 128 --seqlen 2048 \
+--padding_side left \
+--prune_method wanda_option1 --sparsity_ratio 0.5 \
+--sparsity_type unstructured \
+--skip_dense_eval
+
+# GSM8K: ICL = 5, random CoT
+python3 main.py \
+--cuda_id 3 \
+--model Undi95/Meta-Llama-3-8B-Instruct-hf \
+--calibration_datasets gsm8k \
+--input_format concat \
+--nsamples 128 --seqlen 2048 \
+--padding_side left \
+--shot few --num_incontext 5 \
+--prune_method wanda --sparsity_ratio 0.5 \
+--sparsity_type unstructured
+```
+
+### Script example of pruning via OWL-wanda
+```
+python3 main.py \
+--cuda_id 0 \
+--model Undi95/Meta-Llama-3-8B-Instruct-hf \
+--calibration_datasets c4 \
+--prune_method owl \
+--sparsity_ratio 0.5 \
+--sparsity_type unstructured \
+--Lamda 0.08 \
+--Hyper_m 5 \
+--skip_dense_eval
+
+python3 main.py \
+--cuda_id 0 \
+--model Undi95/Meta-Llama-3-8B-Instruct-hf \
+--calibration_datasets c4 enriched_truth_qa \
+--prune_method owl_option2 \
+--sparsity_ratio 0.5 \
+--sparsity_type unstructured \
+--Lamda 0.08 \
+--Hyper_m 5 \
+--skip_dense_eval
+
+# Enriched TruthfulQA
+python3 main.py \
+--cuda_id 0 \
+--model Undi95/Meta-Llama-3-8B-Instruct-hf \
+--calibration_datasets c4 enriched_truth_qa \
+--input_format concat \
+--nsamples 128 --seqlen 2048 \
+--padding_side left \
+--prune_method owl \
+--sparsity_ratio 0.5 \
+--sparsity_type unstructured \
+--Lamda 0.08 \
+--Hyper_m 5 \
+--skip_dense_eval
+
+meta-llama/Llama-2-13b-chat-hf
+mistralai/Mistral-7B-Instruct-v0.3
+Undi95/Meta-Llama-3-8B-Instruct-hf
+python3 main.py \
+--cuda_id 0 \
+--model mistralai/Mistral-7B-Instruct-v0.3 \
+--calibration_datasets c4 enriched_truth_qa \
+--input_format concat \
+--nsamples 128 --seqlen 2048 \
+--padding_side left \
+--prune_method owl_option2 \
+--sparsity_ratio 0.5 \
+--sparsity_type unstructured \
+--Lamda 0.08 \
+--Hyper_m 5 \
+--skip_dense_eval
+
+```
+
+
+
 
 **Truthfulness on Imitative Falsehoods**
 
