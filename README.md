@@ -1,8 +1,8 @@
 # Pruning Weights but Not Truth: Safeguarding Truthfulness While Pruning LLMs (2025-EMNLP-Findings-Poster)
 
-## Installation and Quickstart
+## Step 1: Truthful Pruning, OWL Pruning, and Wanda Pruning
 
-**Truthful Pruning, OWL Pruning, and Wanda Pruning**
+**Installation** 
 
 ```bash
 cd TruthfulPruning
@@ -14,7 +14,7 @@ conda activate truthful_pruning
 pip install -r requirements.txt
 ```
 
-## Usage
+**Quickstart**
 --- 
 We provide a quick overview of the arguments:  
 - `--model`: The identifier for the LLaMA model on the Hugging Face model hub.
